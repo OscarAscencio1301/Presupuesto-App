@@ -12,12 +12,15 @@ const initialState: Expense = {
 
 export const Modal = () => {
 
-    const { isOpenModal, changeModalAct } = useBudget()
-    const { form, expense, cost, category, changeEvent} = useForm(initialState)
+    const { isOpenModal, changeModalAct, addExpenseAct } = useBudget()
+    const { form, expense, cost, category, changeEvent, reset } = useForm(initialState)
 
-    const sendForm = (e:FormEvent) => {
+    const sendForm = (e: FormEvent) => {
         e.preventDefault()
-        console.log(form)
+        if ([expense, category, cost].includes('')) return
+        addExpenseAct({ id: Date.now(), ...form })
+        changeModalAct()
+        reset()
     }
 
     return (
@@ -30,13 +33,13 @@ export const Modal = () => {
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Nombre Gasto</label>
                     <input type="text" placeholder='Añade nombre al gasto' className='bg-white border rounded p-2 text-black'
-                    name="expense" value={expense} onChange={changeEvent}
+                        name="expense" value={expense} onChange={changeEvent}
                     />
                 </div>
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Gasto</label>
                     <input type="number" placeholder='Añade el gasto' className='bg-white border rounded p-2 text-black'
-                    name="cost" value={cost} onChange={changeEvent} />
+                        name="cost" value={cost} onChange={changeEvent} />
                 </div>
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Categoría</label>

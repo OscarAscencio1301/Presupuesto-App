@@ -12,7 +12,7 @@ export interface Budget {
 
 
 export interface Expense {
-    id?:string,
+    id?:number,
     expense: string,
     cost: number,
     category: string

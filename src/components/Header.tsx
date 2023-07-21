@@ -2,7 +2,6 @@ import { useBudget } from "../hooks/useBudget"
 import { Budget } from "./Budget"
 import { ControlBudget } from "./ControlBudget"
 import imageBudgetNew from '../assets/nuevo-gasto.svg'
-import { Modal } from "./Modal"
 
 export const Header = () => {
 
@@ -20,7 +19,6 @@ export const Header = () => {
                     <img src={imageBudgetNew} alt="New Budget" />
                 </div>
             }
-            <Modal />
         </>
 
     )

@@ -5,6 +5,8 @@ const initialState: Budget = {
     budget: 0,
     isValidBudget: false,
     isOpenModal: false,
+    expenses: [],
+    expenseActive: null
 }
 
 export const budgetSlice = createSlice({
@@ -17,8 +19,23 @@ export const budgetSlice = createSlice({
         },
         changeModal: (state) => {
             state.isOpenModal = !state.isOpenModal
+        },
+        add: (state, { payload }) => {
+            state.expenses.push(payload)
+        },
+        active: (state, { payload }) => {
+            state.expenseActive = payload
+        },
+        update: (state, { payload }) => {
+            state.expenses = state.expenses.map(expense => expense.id === payload.id ? payload : expense)
+        },
+        deleteB: (state, { payload }) => {
+            state.expenses = state.expenses.filter(expense => expense.id !== payload)
+        },
+        clean: (state) => {
+            state.expenseActive = null
         }
     }
 })
 
-export const { defineBudget, changeModal } = budgetSlice.actions
+export const { defineBudget, changeModal, add, active, update, deleteB, clean } = budgetSlice.actions
