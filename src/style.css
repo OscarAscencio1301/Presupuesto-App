@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*** SWIPE LIST OVERRIDES **/
+.swipe-action__leading {
+    background-color: green;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.swipe-action__trailing {
+    background-color: #db2777 !important;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.swipeable-list .swipe-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    text-align: right;
+}

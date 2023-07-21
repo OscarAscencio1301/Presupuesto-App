@@ -4,7 +4,7 @@ import { active, add, changeModal, clean, defineBudget, deleteB, update } from "
 
 
 export const useBudget = () => {
-    const { expenses, expenseActive, budget, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
+    const { expenses, expenseActive, budget, available, spent, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
     const dispatch = useDispatch()
 
 
@@ -35,6 +35,8 @@ export const useBudget = () => {
     return {
         expenses,
         expenseActive,
+        available,
+        spent,
         budget,
         isOpenModal,
         isValidBudget,

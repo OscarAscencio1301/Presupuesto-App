@@ -12,13 +12,17 @@ const initialState: Expense = {
 
 export const Modal = () => {
 
-    const { isOpenModal, changeModalAct, addExpenseAct } = useBudget()
-    const { form, expense, cost, category, changeEvent, reset } = useForm(initialState)
+    const { isOpenModal, changeModalAct, addExpenseAct, expenseActive, updateExpenseAct } = useBudget()
+    const { form, expense, cost, category, changeEvent, reset, setform } = useForm(initialState)
 
     const sendForm = (e: FormEvent) => {
         e.preventDefault()
         if ([expense, category, cost].includes('')) return
-        addExpenseAct({ id: Date.now(), ...form })
+        if (expenseActive) {
+            updateExpenseAct({ ...form })
+        } else {
+            addExpenseAct({ id: Date.now(), ...form, cost: Number(cost) })
+        }
         changeModalAct()
         reset()
     }
@@ -29,6 +33,15 @@ export const Modal = () => {
             document.body.style.overflow = 'auto'
         }
     }, [isOpenModal])
+
+    useEffect(() => {
+        if (expenseActive) {
+            setform(expenseActive)
+        } else {
+            setform(initialState)
+        }
+    }, [expenseActive])
+
 
 
     return (

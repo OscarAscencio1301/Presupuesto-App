@@ -4,6 +4,8 @@ export interface Slice {
 
 export interface Budget {
     budget: number,
+    available: number,
+    spent: number,
     isValidBudget: boolean,
     isOpenModal: boolean,
     expenses: Expense[],
