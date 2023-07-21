@@ -1,4 +1,4 @@
-import { FormEvent } from 'react'
+import { FormEvent, useEffect } from 'react'
 import imageClose from '../assets/cerrar.svg'
 import { useBudget } from '../hooks/useBudget'
 import { useForm } from '../hooks/useForm'
@@ -22,6 +22,14 @@ export const Modal = () => {
         changeModalAct()
         reset()
     }
+    useEffect(() => {
+        if (isOpenModal) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+    }, [isOpenModal])
+
 
     return (
         <div className={`flex justify-center items-center top-0 absolute z-10 h-screen w-screen bg-black bg-opacity-90 ${isOpenModal ? 'block' : 'hidden'}`}>
