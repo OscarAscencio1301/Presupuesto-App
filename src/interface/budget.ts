@@ -9,7 +9,9 @@ export interface Budget {
     porcent: number,
     isValidBudget: boolean,
     isOpenModal: boolean,
+    search: string,
     expenses: Expense[],
+    expensesFilter: Expense[]
     expenseActive: Expense | null
 }
 

@@ -30,6 +30,7 @@ export const Modal = () => {
     useEffect(() => {
         if (isOpenModal) {
             document.body.style.overflow = 'hidden'
+            window.scroll(0, 0)
         } else {
             document.body.style.overflow = 'auto'
             cleanExpenseAct()

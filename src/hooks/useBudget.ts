@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Budget, Expense, Slice } from "../interface/budget"
-import { active, add, calculate, changeModal, clean, defineBudget, deleteB, update } from "../store/budget/budgetSlice"
+import { active, add, calculate, changeModal, clean, defineBudget, deleteB, filterExpense, resetValues, update } from "../store/budget/budgetSlice"
 
 
 export const useBudget = () => {
-    const { expenses, expenseActive, budget, available, spent, porcent, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
+    const { expenses, expenseActive, search, expensesFilter, budget, available, spent, porcent, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
     const dispatch = useDispatch()
 
 
@@ -35,10 +35,19 @@ export const useBudget = () => {
         dispatch(calculate())
     }
 
+    const filterExpensesAct = (category:string) => {
+        dispatch(filterExpense(category))
+    }
+
+    const resetAct = () => {
+        dispatch(resetValues())
+    }
 
     return {
         expenses,
         expenseActive,
+        expensesFilter,
+        search,
         porcent,
         available,
         spent,
@@ -52,6 +61,8 @@ export const useBudget = () => {
         updateExpenseAct,
         deleteExpenseAct,
         cleanExpenseAct,
-        calculateAct
+        calculateAct,
+        filterExpensesAct,
+        resetAct
     }
 }

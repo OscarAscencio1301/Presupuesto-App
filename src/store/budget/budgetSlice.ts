@@ -9,6 +9,8 @@ const initialState: Budget = {
     isValidBudget: false,
     isOpenModal: false,
     expenses: [],
+    expensesFilter: [],
+    search: '',
     expenseActive: null
 }
 
@@ -36,7 +38,7 @@ export const budgetSlice = createSlice({
         },
         deleteB: (state, { payload }) => {
             state.expenses = state.expenses.filter(expense => expense.id !== payload)
-            state.available +=  payload.cost
+            state.available += payload.cost
             state.spent -= payload.cost
         },
         clean: (state) => {
@@ -46,8 +48,24 @@ export const budgetSlice = createSlice({
             state.available = state.expenses.reduce((acc, element) => acc + element.cost, 0)
             state.spent = state.budget - state.available
             state.porcent = ((state.budget - state.available) / state.budget) * 100
+        },
+        filterExpense: (state, { payload }) => {
+            state.search = payload
+            state.expensesFilter = state.expenses.filter(expense => expense.category === payload)
+        },
+        resetValues: (state) => {
+            state.budget = 0
+            state.available = 0
+            state.spent = 0
+            state.porcent = 0
+            state.isValidBudget = false
+            state.isOpenModal = false
+            state.expenses = []
+            state.expensesFilter = []
+            state.search = ''
+            state.expenseActive = null
         }
     }
 })
 
-export const { defineBudget, changeModal, add, active, update, deleteB, clean, calculate } = budgetSlice.actions
+export const { defineBudget, resetValues, changeModal, add, active, update, deleteB, clean, calculate, filterExpense } = budgetSlice.actions
