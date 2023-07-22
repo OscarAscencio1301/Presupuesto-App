@@ -6,6 +6,7 @@ export interface Budget {
     budget: number,
     available: number,
     spent: number,
+    porcent: number,
     isValidBudget: boolean,
     isOpenModal: boolean,
     expenses: Expense[],

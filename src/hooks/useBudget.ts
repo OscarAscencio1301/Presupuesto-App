@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Budget, Expense, Slice } from "../interface/budget"
-import { active, add, changeModal, clean, defineBudget, deleteB, update } from "../store/budget/budgetSlice"
+import { active, add, calculate, changeModal, clean, defineBudget, deleteB, update } from "../store/budget/budgetSlice"
 
 
 export const useBudget = () => {
-    const { expenses, expenseActive, budget, available, spent, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
+    const { expenses, expenseActive, budget, available, spent, porcent, isValidBudget, isOpenModal } = useSelector<Slice, Budget>(state => state.budget)
     const dispatch = useDispatch()
 
 
@@ -31,10 +31,15 @@ export const useBudget = () => {
         dispatch(clean())
     }
 
+    const calculateAct = () => {
+        dispatch(calculate())
+    }
+
 
     return {
         expenses,
         expenseActive,
+        porcent,
         available,
         spent,
         budget,
@@ -46,6 +51,7 @@ export const useBudget = () => {
         activeExpenseAct,
         updateExpenseAct,
         deleteExpenseAct,
-        cleanExpenseAct
+        cleanExpenseAct,
+        calculateAct
     }
 }
