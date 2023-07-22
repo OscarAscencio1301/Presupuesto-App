@@ -30,7 +30,6 @@ export const Modal = () => {
     useEffect(() => {
         if (isOpenModal) {
             document.body.style.overflow = 'hidden'
-            window.scroll(0, 0)
         } else {
             document.body.style.overflow = 'auto'
             cleanExpenseAct()
@@ -52,22 +51,22 @@ export const Modal = () => {
             <div className="w-10 absolute right-3 top-5 cursor-pointer" onClick={changeModalAct}>
                 <img src={imageClose} alt="Close Modal" />
             </div>
-            <form className='flex flex-col w-[400px] p-5 gap-10 justify-center h-screen' onSubmit={sendForm}>
+            <form className='flex flex-col w-[400px] p-5 gap-10 justify-center h-screen' onSubmit={sendForm} aria-label='form'>
                 <legend>Nuevo Gasto</legend>
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Nombre Gasto</label>
-                    <input type="text" placeholder='Añade nombre al gasto' className='bg-white border rounded p-2 text-black'
+                    <input aria-label='expense' type="text" placeholder='Añade nombre al gasto' className='bg-white border rounded p-2 text-black'
                         name="expense" value={expense} onChange={changeEvent}
                     />
                 </div>
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Gasto</label>
-                    <input type="number" placeholder='Añade el gasto' className='bg-white border rounded p-2 text-black'
+                    <input aria-label='cost' type="number" placeholder='Añade el gasto' className='bg-white border rounded p-2 text-black'
                         name="cost" value={cost} onChange={changeEvent} />
                 </div>
                 <div className="text-white flex flex-col gap-2 ">
                     <label htmlFor="" className='text-3xl'>Categoría</label>
-                    <select className='bg-white border rounded p-2 text-black' name="category" value={category} onChange={changeEvent}>
+                    <select aria-label='category' className='bg-white border rounded p-2 text-black' name="category" value={category} onChange={changeEvent}>
                         <option value="">-- Seleccione --</option>
                         <option value="ahorro">Ahorro</option>
                         <option value="comida">Comida</option>

@@ -13,9 +13,9 @@ export const ListExpenses = () => {
       {
         search
           ?
-          expensesFilter.map(expense => <SingleExpense key={expense.id} {...expense} />)
+          expensesFilter?.map(expense => <SingleExpense key={expense.id} {...expense} />)
           :
-          expenses.map(expense => <SingleExpense key={expense.id} {...expense} />)
+          expenses?.map(expense => <SingleExpense key={expense.id} {...expense} />)
       }
     </div>
   )

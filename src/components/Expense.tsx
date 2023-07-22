@@ -64,7 +64,7 @@ export const SingleExpense = ({ category, cost, expense, id }: Expense) => {
                             <p className="text-lg text-gray-700">{date}</p>
                         </div>
                     </div>
-                    <div className="">
+                    <div>
                         <p className="text-2xl text-black font-bold">${cost}</p>
                     </div>
                 </div>

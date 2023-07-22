@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Component Modal Snapshot  1`] = `
+<div>
+  <div
+    class="flex justify-center items-center top-0 absolute z-10 h-screen w-screen bg-black bg-opacity-90 block"
+  >
+    <div
+      class="w-10 absolute right-3 top-5 cursor-pointer"
+    >
+      <img
+        alt="Close Modal"
+      />
+    </div>
+    <form
+      aria-label="form"
+      class="flex flex-col w-[400px] p-5 gap-10 justify-center h-screen"
+    >
+      <legend>
+        Nuevo Gasto
+      </legend>
+      <div
+        class="text-white flex flex-col gap-2 "
+      >
+        <label
+          class="text-3xl"
+          for=""
+        >
+          Nombre Gasto
+        </label>
+        <input
+          aria-label="expense"
+          class="bg-white border rounded p-2 text-black"
+          name="expense"
+          placeholder="Añade nombre al gasto"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="text-white flex flex-col gap-2 "
+      >
+        <label
+          class="text-3xl"
+          for=""
+        >
+          Gasto
+        </label>
+        <input
+          aria-label="cost"
+          class="bg-white border rounded p-2 text-black"
+          name="cost"
+          placeholder="Añade el gasto"
+          type="number"
+          value=""
+        />
+      </div>
+      <div
+        class="text-white flex flex-col gap-2 "
+      >
+        <label
+          class="text-3xl"
+          for=""
+        >
+          Categoría
+        </label>
+        <select
+          aria-label="category"
+          class="bg-white border rounded p-2 text-black"
+          name="category"
+        >
+          <option
+            value=""
+          >
+            -- Seleccione --
+          </option>
+          <option
+            value="ahorro"
+          >
+            Ahorro
+          </option>
+          <option
+            value="comida"
+          >
+            Comida
+          </option>
+          <option
+            value="casa"
+          >
+            Casa
+          </option>
+          <option
+            value="gastos"
+          >
+            Gastos Varioa
+          </option>
+          <option
+            value="ocio"
+          >
+            Ocio
+          </option>
+          <option
+            value="salud"
+          >
+            Salud
+          </option>
+          <option
+            value="subscripciones"
+          >
+            Subscripciones
+          </option>
+        </select>
+      </div>
+      <button
+        class="bg-green-700 text-white p-2 rounded-sm hover:bg-green-900"
+        type="submit"
+      >
+        Agregar gasto
+      </button>
+    </form>
+  </div>
+</div>
+`;
